@@ -1,0 +1,15 @@
+{
+    "name": "wayang/stdlib-errorhandler",
+    "description": "The Wayang Stdlib ErrorHandler",
+    "type": "library",
+    "license": "Apache-2.0",
+    "require": {
+    	"php": "^7.1.3",
+        "wayang/error": "^1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wayang\\Stdlib\\ErrorHandler\\": "src/Wayang/Stdlib/ErrorHandler"
+        }
+    }
+}

@@ -21,6 +21,16 @@ namespace Wayang\Stdlib\ErrorHandler;
 interface PhpErrorHandlerInterface
 {
 	/**
+	 * @return int
+	 */
+	public function getLevels(): int;
+
+	/**
+	 * @return callable
+	 */
+	public function getCallback(): callable;
+	
+	/**
 	 * @return bool
 	 */
 	public function isRegistered(): bool;

@@ -24,16 +24,16 @@ interface ErrorHandlerInterface
 	 * @return bool
 	 */
 	public function isError(): bool;
-
-	/**
-	 * @return array
-	 */
-	public function getErrors(): array;
 	
 	/**
 	 * @return ErrorInterface|null
 	 */
-	public function getLastError(): ?ErrorInterface;
+	public function getError(): ?ErrorInterface;
+
+	/**
+	 * @return array
+	 */
+	public function getStack(): array;
 
 	/**
 	 * @return int

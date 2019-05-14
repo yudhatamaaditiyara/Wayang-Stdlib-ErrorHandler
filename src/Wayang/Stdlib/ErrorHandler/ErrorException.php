@@ -20,18 +20,16 @@ use Wayang;
 
 /**
  */
-class Error extends Wayang\Error\Error implements ErrorInterface
+class ErrorException extends Wayang\Exception\ErrorException implements ErrorExceptionInterface
 {
 	/**
-	 * @param int $code
+	 * @param int $severity
 	 * @param string $message
 	 * @param string $file
 	 * @param int $line
-	 * @param ErrorInterface|null $previous
+	 * @param ErrorExceptionInterface|null $previous
 	 */
-	public function __construct(int $code, string $message, string $file, int $line, ErrorInterface $previous = null){
-		parent::__construct($message, $code, $previous);
-		$this->file = $file;
-		$this->line = $line;
+	public function __construct(int $severity, string $message, string $file, int $line, ErrorExceptionInterface $previous = null){
+		parent::__construct($message, 0, $severity, $file, $line, $previous);
 	}
 }

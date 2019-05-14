@@ -26,9 +26,9 @@ interface ErrorHandlerInterface
 	public function isError(): bool;
 	
 	/**
-	 * @return ErrorInterface|null
+	 * @return ErrorExceptionInterface|null
 	 */
-	public function getError(): ?ErrorInterface;
+	public function getError(): ?ErrorExceptionInterface;
 
 	/**
 	 * @return array

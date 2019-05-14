@@ -77,8 +77,8 @@ class PhpErrorHandler implements PhpErrorHandlerInterface
 			return false;
 		}
 		$error = null;
-		$handle = function(int $code, string $message, string $file, int $line)use(&$error){
-			call_user_func($this->callback, $error = new Error($code, $message, $file, $line, $error));
+		$handle = function(int $severity, string $message, string $file, int $line)use(&$error){
+			call_user_func($this->callback, $error = new ErrorException($severity, $message, $file, $line, $error));
 		};
 		set_error_handler($handle, $this->levels);
 		$this->isRegistered = true;

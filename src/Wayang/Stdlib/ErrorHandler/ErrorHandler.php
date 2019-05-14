@@ -31,7 +31,7 @@ class ErrorHandler implements ErrorHandlerInterface
 	protected $stack = [];
 
 	/**
-	 * @var ErrorInterface
+	 * @var ErrorExceptionInterface|null
 	 */
 	protected $error;
 
@@ -40,7 +40,7 @@ class ErrorHandler implements ErrorHandlerInterface
 	 * @param bool $register
 	 */
 	public function __construct(int $levels = E_ALL, bool $register = true){
-		$this->handler = new PhpErrorHandler(function(ErrorInterface $e){
+		$this->handler = new PhpErrorHandler(function(ErrorExceptionInterface $e){
 			$this->error = $this->stack[] = $e;
 		}, $levels, $register);
 	}
@@ -53,9 +53,9 @@ class ErrorHandler implements ErrorHandlerInterface
 	}
 
 	/**
-	 * @return ErrorInterface
+	 * @return ErrorExceptionInterface|null
 	 */
-	public function getError(): ?ErrorInterface{
+	public function getError(): ?ErrorExceptionInterface{
 		return $this->error;
 	}
 

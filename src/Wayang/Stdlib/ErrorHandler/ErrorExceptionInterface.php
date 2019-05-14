@@ -20,5 +20,5 @@ use Wayang;
 
 /**
  */
-interface ErrorInterface extends Wayang\Error\ErrorInterface
+interface ErrorExceptionInterface extends Wayang\Exception\ErrorExceptionInterface
 {}

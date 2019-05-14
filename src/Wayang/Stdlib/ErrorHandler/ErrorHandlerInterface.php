@@ -18,7 +18,7 @@ namespace Wayang\Stdlib\ErrorHandler;
 
 /**
  */
-interface ErrorHandlerInterface extends PhpErrorHandlerInterface
+interface ErrorHandlerInterface
 {
 	/**
 	 * @return bool
@@ -34,4 +34,24 @@ interface ErrorHandlerInterface extends PhpErrorHandlerInterface
 	 * @return ErrorInterface|null
 	 */
 	public function getLastError(): ?ErrorInterface;
+
+	/**
+	 * @return int
+	 */
+	public function getLevels(): int;
+	
+	/**
+	 * @return bool
+	 */
+	public function isRegistered(): bool;
+
+	/**
+	 * @return bool
+	 */
+	public function register(): bool;
+	
+	/**
+	 * @return bool
+	 */
+	public function restore(): bool;
 }

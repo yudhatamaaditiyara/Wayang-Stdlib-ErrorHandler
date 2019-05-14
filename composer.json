@@ -5,7 +5,7 @@
     "license": "Apache-2.0",
     "require": {
     	"php": "^7.1.3",
-        "wayang/error": "^1.0.0"
+        "wayang/exception": "^1.0.0"
     },
     "autoload": {
         "psr-4": {

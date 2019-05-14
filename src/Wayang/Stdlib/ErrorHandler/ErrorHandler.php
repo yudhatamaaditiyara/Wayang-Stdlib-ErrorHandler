@@ -31,18 +31,25 @@ class ErrorHandler implements ErrorHandlerInterface
 	protected $errors = [];
 
 	/**
+	 * @var ErrorInterface
+	 */
+	protected $error;
+
+	/**
 	 * @param int $levels
 	 * @param bool $register
 	 */
 	public function __construct(int $levels = E_ALL, bool $register = true){
-		$this->handler = new PhpErrorHandler(function(ErrorInterface $e){$this->errors[] = $e;}, $levels, $register);
+		$this->handler = new PhpErrorHandler(function(ErrorInterface $e){
+			$this->error = $this->errors[] = $e;
+		}, $levels, $register);
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function isError(): bool{
-		return count($this->errors) > 0;
+		return $this->error !== null;
 	}
 
 	/**
@@ -56,7 +63,7 @@ class ErrorHandler implements ErrorHandlerInterface
 	 * @return ErrorInterface|null
 	 */
 	public function getLastError(): ?ErrorInterface{
-		return end($this->errors);
+		return $this->error;
 	}
 
 	/**
